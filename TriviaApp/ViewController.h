@@ -15,6 +15,7 @@
     IBOutlet UIButton *answerButtonTwo;
     IBOutlet UIButton *answerButtonThree;
     IBOutlet UIButton *answerButtonFour;
+    IBOutlet UIButton *startGameButton;
 }
 
 
@@ -26,6 +27,7 @@
 @property(nonatomic) NSTimer *timer;
 
 -(IBAction)answerButtonSelected:(id)sender;
+-(IBAction)startOrRestartGame:(id)sender;
 
 @end
 

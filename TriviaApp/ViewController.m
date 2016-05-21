@@ -16,13 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    _currentQuestionIndex = 0;
-    
-    [self startGame];
-    _startTime = 2;
-
-    
+    [self hideViewAttributes];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,6 +72,7 @@
 }
 
 -(void)startGame{
+    self.view.backgroundColor = [UIColor whiteColor];
     _questions = [NSMutableArray array];
     [self createQuestions];
     _currentQuestion = [_questions objectAtIndex:_currentQuestionIndex];
@@ -126,6 +121,24 @@
     }
 }
 
+-(void)hideViewAttributes {
+        [startGameButton setTitle:@"Start Game" forState:UIControlStateNormal];
+        questionTextView.layer.opacity = 0.00;
+        answerButtonOne.layer.opacity = 0.00;
+        answerButtonTwo.layer.opacity = 0.00;
+        answerButtonThree.layer.opacity = 0.00;
+        answerButtonFour.layer.opacity = 0.00;
+}
+
+-(void)showViewAttributes {
+    [startGameButton setTitle:@"Restart Game" forState:UIControlStateNormal];
+    questionTextView.layer.opacity = 1.00;
+    answerButtonOne.layer.opacity = 1.00;
+    answerButtonTwo.layer.opacity = 1.00;
+    answerButtonThree.layer.opacity = 1.00;
+    answerButtonFour.layer.opacity = 1.00;
+}
+
 - (IBAction)answerButtonSelected:(id)sender {
     
     UIButton *selectedButton = sender;
@@ -140,7 +153,14 @@
     
 }
 
+-(IBAction)startOrRestartGame:(id)sender {
 
+    [self showViewAttributes];
+    
+    _startTime = 2;
+    _currentQuestionIndex = 0;
+    [self startGame];
+}
 
 
 

@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Question.h"
 
 @interface QuestionData : NSObject
+
+@property(nonatomic, strong) NSMutableArray *questionsArray;
+-(void)createQuestions;
 
 @end

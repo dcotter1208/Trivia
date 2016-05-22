@@ -320,6 +320,7 @@
 				43417E0F1CEF7DDA00146A17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

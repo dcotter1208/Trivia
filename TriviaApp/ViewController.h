@@ -20,7 +20,7 @@
 }
 
 
-@property(nonatomic, strong)NSMutableArray *questions;
+@property(nonatomic, strong)NSArray *questions;
 @property(nonatomic, strong) Question *currentQuestion;
 @property(nonatomic) int currentQuestionIndex;
 @property(nonatomic)int pointCount;

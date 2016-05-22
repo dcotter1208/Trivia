@@ -15,7 +15,7 @@
 @property(nonatomic, strong) NSString *possibleAnswerTwo;
 @property(nonatomic, strong) NSString *possibleAnswerThree;
 @property(nonatomic, strong) NSString *correctAnswer;
-@property(nonatomic, strong) NSArray *answerArray;
+@property(nonatomic, strong) NSMutableArray *answerArray;
 @property(nonatomic) int pointValue;
 
 -(id)initWithQuestion:(NSString *)question;

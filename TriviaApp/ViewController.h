@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Question.h"
+#import "QuestionData.h"
 
 @interface ViewController : UIViewController {
     IBOutlet UITextView *questionTextView;

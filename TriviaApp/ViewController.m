@@ -34,6 +34,7 @@
     questionOne.possibleAnswerTwo = @"Greektown";
     questionOne.possibleAnswerThree = @"Mexicantown";
     questionOne.correctAnswer = @"TechTown";
+    questionOne.answerArray = @[questionOne.possibleAnswerOne, questionOne.possibleAnswerTwo, questionOne.possibleAnswerThree, questionOne.correctAnswer];
     
     Question *questionTwo = [Question initWithQuestion:@"Which of these is NOT a Michigan inland lake?"];
     
@@ -41,6 +42,7 @@
     questionTwo.possibleAnswerTwo = @"Torch Lake";
     questionTwo.possibleAnswerThree = @"Elk Lake";
     questionTwo.correctAnswer = @"Lake Barkley";
+    questionTwo.answerArray = @[questionOne.possibleAnswerOne, questionOne.possibleAnswerTwo, questionOne.possibleAnswerThree, questionOne.correctAnswer];
     
     Question *questionThree = [Question initWithQuestion:@"What is Canada's national animal?"];
     
@@ -48,6 +50,7 @@
     questionThree.possibleAnswerTwo = @"Hawk";
     questionThree.possibleAnswerThree = @"Bison";
     questionThree.correctAnswer = @"Beaver";
+    questionThree.answerArray = @[questionOne.possibleAnswerOne, questionOne.possibleAnswerTwo, questionOne.possibleAnswerThree, questionOne.correctAnswer];
     
     Question *questionFour = [Question initWithQuestion:@"How many states border the Gulf of Mexico?"];
     
@@ -55,6 +58,7 @@
     questionFour.possibleAnswerTwo = @"3";
     questionFour.possibleAnswerThree = @"6";
     questionFour.correctAnswer = @"5";
+    questionFour.answerArray = @[questionOne.possibleAnswerOne, questionOne.possibleAnswerTwo, questionOne.possibleAnswerThree, questionOne.correctAnswer];
     
     Question *questionFive = [Question initWithQuestion:@"What was the first planet to be discovered using the telescope, in 1781?"];
     
@@ -62,6 +66,7 @@
     questionFive.possibleAnswerTwo = @"Mars";
     questionFive.possibleAnswerThree = @"Saturn";
     questionFive.correctAnswer = @"Uranus";
+    questionFive.answerArray = @[questionOne.possibleAnswerOne, questionOne.possibleAnswerTwo, questionOne.possibleAnswerThree, questionOne.correctAnswer];
     
     [_questions addObject:questionOne];
     [_questions addObject:questionTwo];
@@ -87,13 +92,17 @@
 -(void)nextQuestion {
     self.view.backgroundColor = [UIColor whiteColor];
     _startTime = 2;
-    _currentQuestionIndex++;
-    _currentQuestion = [_questions objectAtIndex:_currentQuestionIndex];
-    questionTextView.text = _currentQuestion.question;
-    [answerButtonOne setTitle:_currentQuestion.possibleAnswerOne forState:UIControlStateNormal];
-    [answerButtonTwo setTitle:_currentQuestion.possibleAnswerTwo forState:UIControlStateNormal];
-    [answerButtonThree setTitle:_currentQuestion.possibleAnswerThree forState:UIControlStateNormal];
-    [answerButtonFour setTitle:_currentQuestion.correctAnswer forState:UIControlStateNormal];
+    
+    if (_currentQuestionIndex < _questions.count -1) {
+        _currentQuestionIndex++;
+        NSLog(@"index: %i", _currentQuestionIndex);
+        _currentQuestion = [_questions objectAtIndex:_currentQuestionIndex];
+        questionTextView.text = _currentQuestion.question;
+        [answerButtonOne setTitle:_currentQuestion.possibleAnswerOne forState:UIControlStateNormal];
+        [answerButtonTwo setTitle:_currentQuestion.possibleAnswerTwo forState:UIControlStateNormal];
+        [answerButtonThree setTitle:_currentQuestion.possibleAnswerThree forState:UIControlStateNormal];
+        [answerButtonFour setTitle:_currentQuestion.correctAnswer forState:UIControlStateNormal];
+    }
 }
 
 -(void)determineAnswerCorrectness:(BOOL)answer {
@@ -122,7 +131,6 @@
 }
 
 -(void)hideViewAttributes {
-        [startGameButton setTitle:@"Start Game" forState:UIControlStateNormal];
         questionTextView.layer.opacity = 0.00;
         answerButtonOne.layer.opacity = 0.00;
         answerButtonTwo.layer.opacity = 0.00;
@@ -131,7 +139,6 @@
 }
 
 -(void)showViewAttributes {
-    [startGameButton setTitle:@"Restart Game" forState:UIControlStateNormal];
     questionTextView.layer.opacity = 1.00;
     answerButtonOne.layer.opacity = 1.00;
     answerButtonTwo.layer.opacity = 1.00;
@@ -154,11 +161,10 @@
 }
 
 -(IBAction)startOrRestartGame:(id)sender {
-
-    [self showViewAttributes];
-    
+    [startGameButton setTitle:@"Restart Game" forState:UIControlStateNormal];
     _startTime = 2;
     _currentQuestionIndex = 0;
+    [self showViewAttributes];
     [self startGame];
 }
 

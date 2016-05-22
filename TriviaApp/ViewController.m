@@ -19,7 +19,6 @@
     [super viewDidLoad];
     
     [self hideViewAttributes];
-    [self createQuestions];
     
 }
 
@@ -27,6 +26,10 @@
     [super didReceiveMemoryWarning];
 
 
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [self startGame];
 }
 
 -(void)createQuestions {
@@ -58,6 +61,8 @@
 #pragma mark - Start New Game Function
 
 -(void)startGame {
+    _currentQuestionIndex = 0;
+    totalPointsLabel.text = @"0";
     _questionNumber = 1;
     self.view.backgroundColor = [UIColor whiteColor];
     [self createQuestions];
@@ -65,7 +70,6 @@
     questionTextView.text = _currentQuestion.question;
     [self randomlyDisplayAnswers:_currentQuestion];
     currentQuestionCountLabel.text = [NSString stringWithFormat:@"Question #%i for %i points", _questionNumber, _currentQuestion.pointValue];
-    totalPointsLabel.text = @"0";
 }
 
 #pragma mark - Move to Next Question Function
@@ -73,15 +77,15 @@
 -(void)nextQuestion {
     self.view.backgroundColor = [UIColor whiteColor];
     _startTime = 2;
-
-    Question *previousQuestion = [_questions objectAtIndex:_currentQuestionIndex];
-    _pointCount += previousQuestion.pointValue;
     totalPointsLabel.text = [NSString stringWithFormat:@"%i", _pointCount];
+    
     if (_currentQuestionIndex < _questions.count -1) {
         _currentQuestionIndex++;
         _currentQuestion = [_questions objectAtIndex:_currentQuestionIndex];
+        
         questionTextView.text = _currentQuestion.question;
         [self randomlyDisplayAnswers:_currentQuestion];
+        
         currentQuestionCountLabel.text = [NSString stringWithFormat:@"Question #%i for %i points", _questionNumber, _currentQuestion.pointValue];
     }
 }
@@ -90,14 +94,18 @@
 
 -(void)determineAnswerCorrectness:(BOOL)answer {
     
-    if (answer && _pointCount == 150) {
+    _previousQuestion = [_questions objectAtIndex:_currentQuestionIndex];
+    
+    if (answer && _pointCount == 100) {
+        _pointCount += _previousQuestion.pointValue;
         [self performSegueWithIdentifier:@"segueToOutcomeVC" sender:self];
     } else if (answer) {
+        _pointCount += _previousQuestion.pointValue;
         self.view.backgroundColor = [UIColor greenColor];
         [self startTimer];
         [self subtractTime];
     } else {
-        self.view.backgroundColor = [UIColor redColor];
+        [self performSegueWithIdentifier:@"segueToOutcomeVC" sender:self];
     }
 }
 
@@ -164,6 +172,8 @@
     }
 }
 
+#pragma mark - Prepare For Segue
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"segueToOutcomeVC"]) {
         OutcomeViewController *destionationVC = (OutcomeViewController *)segue.destinationViewController;
@@ -190,7 +200,6 @@
     
     [startGameButton setTitle:@"Restart Game" forState:UIControlStateNormal];
     _startTime = 2;
-    _currentQuestionIndex = 0;
     [self showViewAttributes];
     [self startGame];
 }

@@ -16,5 +16,7 @@
 
 @property (nonatomic) int totalPoints;
 
+-(IBAction)dismissView:(id)sender;
+
 
 @end

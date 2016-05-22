@@ -18,8 +18,9 @@
 @property(nonatomic, strong) NSMutableArray *answerArray;
 @property(nonatomic) int pointValue;
 
--(id)initWithQuestion:(NSString *)question;
-+(id)initWithQuestion:(NSString *)question;
+-(id)initWithQuestion:(NSString *)question answerOne:(NSString *)answerOne answerTwo:(NSString *)answerTwo answerThree:(NSString *)answerThree correctAnswer:(NSString *)correctAnswer pointValue:(int)pointValue;
+
++(id)initWithQuestion:(NSString *)question answerOne:(NSString *)answerOne answerTwo:(NSString *)answerTwo answerThree:(NSString *)answerThree correctAnswer:(NSString *)correctAnswer pointValue:(int)pointValue;
 
 
 @end

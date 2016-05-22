@@ -14,7 +14,7 @@
 		43417E061CEF7DDA00146A17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43417E051CEF7DDA00146A17 /* Assets.xcassets */; };
 		43417E091CEF7DDA00146A17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43417E071CEF7DDA00146A17 /* LaunchScreen.storyboard */; };
 		43417E121CEF7DF900146A17 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 43417E111CEF7DF900146A17 /* Question.m */; };
-		43417E161CEF801900146A17 /* QuestionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 43417E151CEF801900146A17 /* QuestionData.m */; };
+		43417E1B1CF21A2800146A17 /* OutcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43417E1A1CF21A2800146A17 /* OutcomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		43417E0A1CEF7DDA00146A17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43417E101CEF7DF900146A17 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		43417E111CEF7DF900146A17 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
-		43417E141CEF801900146A17 /* QuestionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionData.h; sourceTree = "<group>"; };
-		43417E151CEF801900146A17 /* QuestionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionData.m; sourceTree = "<group>"; };
+		43417E191CF21A2800146A17 /* OutcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutcomeViewController.h; sourceTree = "<group>"; };
+		43417E1A1CF21A2800146A17 /* OutcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutcomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +68,8 @@
 				43417DFD1CEF7DDA00146A17 /* AppDelegate.m */,
 				43417DFF1CEF7DDA00146A17 /* ViewController.h */,
 				43417E001CEF7DDA00146A17 /* ViewController.m */,
+				43417E191CF21A2800146A17 /* OutcomeViewController.h */,
+				43417E1A1CF21A2800146A17 /* OutcomeViewController.m */,
 				43417E021CEF7DDA00146A17 /* Main.storyboard */,
 				43417E051CEF7DDA00146A17 /* Assets.xcassets */,
 				43417E131CEF7DFD00146A17 /* Model */,
@@ -91,8 +93,6 @@
 			children = (
 				43417E101CEF7DF900146A17 /* Question.h */,
 				43417E111CEF7DF900146A17 /* Question.m */,
-				43417E141CEF801900146A17 /* QuestionData.h */,
-				43417E151CEF801900146A17 /* QuestionData.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -167,9 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43417E161CEF801900146A17 /* QuestionData.m in Sources */,
 				43417E011CEF7DDA00146A17 /* ViewController.m in Sources */,
 				43417E121CEF7DF900146A17 /* Question.m in Sources */,
+				43417E1B1CF21A2800146A17 /* OutcomeViewController.m in Sources */,
 				43417DFE1CEF7DDA00146A17 /* AppDelegate.m in Sources */,
 				43417DFB1CEF7DDA00146A17 /* main.m in Sources */,
 			);

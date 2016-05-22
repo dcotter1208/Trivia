@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Question.h"
-#import "QuestionData.h"
 
 @interface ViewController : UIViewController {
     IBOutlet UITextView *questionTextView;
@@ -17,13 +16,18 @@
     IBOutlet UIButton *answerButtonThree;
     IBOutlet UIButton *answerButtonFour;
     IBOutlet UIButton *startGameButton;
+    IBOutlet UILabel *totalPointsLabel;
+    IBOutlet UILabel *currentQuestionCountLabel;
+    IBOutlet UILabel *totalPointsStaticLabel;
 }
 
 
 @property(nonatomic, strong)NSArray *questions;
 @property(nonatomic, strong) Question *currentQuestion;
+@property(nonatomic, strong) Question *previousQuestion;
 @property(nonatomic) int currentQuestionIndex;
-@property(nonatomic)int pointCount;
+@property(nonatomic) int pointCount;
+@property(nonatomic) int questionNumber;
 @property(nonatomic) int startTime;
 @property(nonatomic) NSTimer *timer;
 

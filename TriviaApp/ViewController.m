@@ -19,7 +19,7 @@
     [super viewDidLoad];
     
     [self hideViewAttributes];
-    
+    [self viewWillLayoutSubviews];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -181,6 +181,48 @@
     }
 }
 
+#pragma mark - Layout Subviews
+-(void)viewWillLayoutSubviews {
+    //Start Button
+    startGameButton.layer.cornerRadius = startGameButton.frame.size.height / 2;
+    startGameButton.layer.borderWidth = 2.0;
+    startGameButton.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    //Question Text View
+    questionTextView.layer.cornerRadius = questionTextView.frame.size.height / 2;
+    questionTextView.layer.borderWidth = 4.0;
+    questionTextView.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    //Answer Buttons
+    answerButtonOne.layer.cornerRadius = answerButtonOne.frame.size.height / 2;
+    answerButtonOne.layer.borderWidth = 2.0;
+    answerButtonOne.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    answerButtonTwo.layer.cornerRadius = answerButtonTwo.frame.size.height / 2;
+    answerButtonTwo.layer.borderWidth = 2.0;
+    answerButtonTwo.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    answerButtonThree.layer.cornerRadius = answerButtonThree.frame.size.height / 2;
+    answerButtonThree.layer.borderWidth = 2.0;
+    answerButtonThree.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    answerButtonFour.layer.cornerRadius = answerButtonFour.frame.size.height / 2;
+    answerButtonFour.layer.borderWidth = 2.0;
+    answerButtonFour.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    //Total Points Label
+    totalPointsLabel.layer.cornerRadius = totalPointsLabel.frame.size.width / 2;
+    totalPointsLabel.clipsToBounds = YES;
+    totalPointsLabel.layer.borderWidth = 2.0;
+    totalPointsLabel.layer.borderColor = [UIColor blackColor].CGColor;
+    
+    //Current Question Label
+    currentQuestionCountLabel.layer.cornerRadius = currentQuestionCountLabel.frame.size.height / 2;
+    currentQuestionCountLabel.clipsToBounds = YES;
+    currentQuestionCountLabel.layer.borderWidth = 2.0;
+    currentQuestionCountLabel.layer.borderColor = [UIColor blackColor].CGColor;
+}
+
 #pragma mark - IBActions
 
 - (IBAction)answerButtonSelected:(id)sender {
@@ -197,13 +239,12 @@
 }
 
 -(IBAction)startOrRestartGame:(id)sender {
-    
+    _pointCount = 0;
     [startGameButton setTitle:@"Restart Game" forState:UIControlStateNormal];
     _startTime = 2;
     [self showViewAttributes];
     [self startGame];
 }
-
 
 
 

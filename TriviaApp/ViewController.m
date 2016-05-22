@@ -19,7 +19,9 @@
     [super viewDidLoad];
     
     [self hideViewAttributes];
+    [self createQuestions];
     [self viewWillLayoutSubviews];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,11 +63,11 @@
 #pragma mark - Start New Game Function
 
 -(void)startGame {
+    self.view.backgroundColor = [UIColor whiteColor];
+    _pointCount = 0;
     _currentQuestionIndex = 0;
     totalPointsLabel.text = @"0";
     _questionNumber = 1;
-    self.view.backgroundColor = [UIColor whiteColor];
-    [self createQuestions];
     _currentQuestion = [_questions objectAtIndex:_currentQuestionIndex];
     questionTextView.text = _currentQuestion.question;
     [self randomlyDisplayAnswers:_currentQuestion];
@@ -123,40 +125,15 @@
     }
 }
 
-#pragma mark - Hide or show buttons and textview
-
--(void)hideViewAttributes {
-    questionTextView.layer.opacity = 0.00;
-    answerButtonOne.layer.opacity = 0.00;
-    answerButtonTwo.layer.opacity = 0.00;
-    answerButtonThree.layer.opacity = 0.00;
-    answerButtonFour.layer.opacity = 0.00;
-    currentQuestionCountLabel.layer.opacity = 0.00;
-    totalPointsStaticLabel.layer.opacity = 0.00;
-    totalPointsLabel.layer.opacity = 0.00;
-}
-
--(void)showViewAttributes {
-    questionTextView.layer.opacity = 1.00;
-    answerButtonOne.layer.opacity = 1.00;
-    answerButtonTwo.layer.opacity = 1.00;
-    answerButtonThree.layer.opacity = 1.00;
-    answerButtonFour.layer.opacity = 1.00;
-    currentQuestionCountLabel.layer.opacity = 1.00;
-    totalPointsStaticLabel.layer.opacity = 1.00;
-    totalPointsLabel.layer.opacity = 1.00;
-}
-
 #pragma mark - Array Shuffle Functions
 
 -(NSArray *)shuffleArray:(NSMutableArray *)questionAnswerArray {
     
-    int count = (int)questionAnswerArray.count;
-    for (int i = 0; i < count; ++i) {
-        int nElements = count - i;
-        int n = (arc4random() % nElements) + i;
-        [questionAnswerArray exchangeObjectAtIndex:i withObjectAtIndex:n];
+    for (int i = 0; i < questionAnswerArray.count; i++) {
+        int randomInt = arc4random() % [questionAnswerArray count];
+        [questionAnswerArray exchangeObjectAtIndex:i withObjectAtIndex:randomInt];
     }
+
     return questionAnswerArray;
 }
 
@@ -179,6 +156,30 @@
         OutcomeViewController *destionationVC = (OutcomeViewController *)segue.destinationViewController;
         destionationVC.totalPoints = _pointCount;
     }
+}
+
+#pragma mark - Hide or show buttons and textview
+
+-(void)hideViewAttributes {
+    questionTextView.layer.opacity = 0.00;
+    answerButtonOne.layer.opacity = 0.00;
+    answerButtonTwo.layer.opacity = 0.00;
+    answerButtonThree.layer.opacity = 0.00;
+    answerButtonFour.layer.opacity = 0.00;
+    currentQuestionCountLabel.layer.opacity = 0.00;
+    totalPointsStaticLabel.layer.opacity = 0.00;
+    totalPointsLabel.layer.opacity = 0.00;
+}
+
+-(void)showViewAttributes {
+    questionTextView.layer.opacity = 1.00;
+    answerButtonOne.layer.opacity = 1.00;
+    answerButtonTwo.layer.opacity = 1.00;
+    answerButtonThree.layer.opacity = 1.00;
+    answerButtonFour.layer.opacity = 1.00;
+    currentQuestionCountLabel.layer.opacity = 1.00;
+    totalPointsStaticLabel.layer.opacity = 1.00;
+    totalPointsLabel.layer.opacity = 1.00;
 }
 
 #pragma mark - Layout Subviews

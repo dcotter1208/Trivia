@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3D566638FD3C3A76767B8AAC7D9B5733C6FDD05C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "3D566638FD3C3A76767B8AAC7D9B5733C6FDD05C" : 0,
+    "D9D0CCF4566E82CC7C13C89E9BA659C99FE126D2" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ADDF493B-7973-4598-82D3-8644BEE95AB6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "3D566638FD3C3A76767B8AAC7D9B5733C6FDD05C" : "TriviaApp\/",
+    "D9D0CCF4566E82CC7C13C89E9BA659C99FE126D2" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TriviaApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TriviaApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dcotter1208\/Trivia.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3D566638FD3C3A76767B8AAC7D9B5733C6FDD05C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:dcotter1208\/LightningRealm.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D9D0CCF4566E82CC7C13C89E9BA659C99FE126D2"
+    }
+  ]
+}

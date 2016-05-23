@@ -87,7 +87,7 @@
         
         questionTextView.text = _currentQuestion.question;
         [self randomlyDisplayAnswers:_currentQuestion];
-        
+        _questionNumber++;
         currentQuestionCountLabel.text = [NSString stringWithFormat:@"Question #%i for %i points", _questionNumber, _currentQuestion.pointValue];
     }
 }
@@ -141,7 +141,6 @@
 
     NSArray *answerArray = [self shuffleArray:question.answerArray];
     for (int i = 0; i < question.answerArray.count; i++) {
-        
         [answerButtonOne setTitle:[answerArray objectAtIndex:0] forState:UIControlStateNormal];
         [answerButtonTwo setTitle:[answerArray objectAtIndex:1] forState:UIControlStateNormal];
         [answerButtonThree setTitle:[answerArray objectAtIndex:2]forState:UIControlStateNormal];
@@ -183,6 +182,7 @@
 }
 
 #pragma mark - Layout Subviews
+
 -(void)viewWillLayoutSubviews {
     //Start Button
     startGameButton.layer.cornerRadius = startGameButton.frame.size.height / 2;
